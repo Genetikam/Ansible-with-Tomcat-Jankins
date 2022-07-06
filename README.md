@@ -4,7 +4,7 @@
 
 ## Requires two virtual machines on Centos 7
 
-http://ftp.nsc.ru/pub/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso
+http://mirrors.datahouse.ru/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.iso
 
 ## Set ip-addresses of web-server and app-server
 
