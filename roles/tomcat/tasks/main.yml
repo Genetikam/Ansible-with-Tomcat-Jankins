@@ -5,6 +5,7 @@
    - name: Copy Jenkins.war
      ansible.builtin.get_url:
        url: https://updates.jenkins.io/download/war/2.277.4/jenkins.war
+       validate_certs: no
        dest: /usr/share/tomcat/webapps/jenkins.war
        owner: tomcat
        group: tomcat
