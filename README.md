@@ -12,8 +12,8 @@ http://mirrors.datahouse.ru/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009
 
 ## Add server's addresses in your /etc/hosts 
 ```
-192.168.100.105  app-server.vm app-server
-192.168.100.104  web-server.vm web-server
+10.69.0.79   app-server
+10.69.0.82   web-server
 ```
 ## Then Run
 ```
