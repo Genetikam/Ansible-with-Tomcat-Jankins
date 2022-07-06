@@ -3,8 +3,8 @@
      yum: name=tomcat state=present
 
    - name: Copy Jenkins.war
-     copy:
-       src: roles/tomcat/templates/jenkins.war
+     ansible.builtin.get_url:
+       url: https://updates.jenkins.io/download/war/2.277.4/jenkins.war
        dest: /usr/share/tomcat/webapps/jenkins.war
        owner: tomcat
        group: tomcat
