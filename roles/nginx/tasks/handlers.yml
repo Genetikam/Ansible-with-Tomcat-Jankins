@@ -1,6 +1,0 @@
----
-- name: restart nginx
-  service: name=nginx enable=yes state=restarted
-
-- name: restart sshd
-  service: name=sshd state=restarted
