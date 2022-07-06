@@ -1,0 +1,27 @@
+---
+   - name: install jdk
+     yum: name=java-11-openjdk state=present
+  
+   - name: Install tomcat
+     yum: name=tomcat state=present
+
+   - name: Start Tomcat
+     service: name=tomcat state=started enabled=yes
+
+   - name: Copy Jenkins.war
+     copy:
+       src: roles/tomcat/templates/jenkins.war
+       dest: /usr/share/tomcat/webapps/jenkins.war
+       owner: tomcat
+       group: tomcat
+       mode: 0770
+     notify: restart tomcat
+
+   - name: Copy tomcat.conf
+     copy:
+       src: roles/tomcat/templates/tomcat.conf
+       dest: /usr/share/tomcat/conf/tomcat.conf
+       owner: tomcat
+       group: tomcat
+       mode: 0770
+     notify: restart tomcat

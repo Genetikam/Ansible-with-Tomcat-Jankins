@@ -1,0 +1,15 @@
+---
+   - name: Create backup directory
+     file:
+       path: /data/backup/
+       state: directory
+
+   - name: Copy backup script
+     template: src=backup.sh dest=/root/backup.sh
+
+   - name: Add cron job for backup
+     ansible.builtin.cron:
+       name: "create backup"
+       minute: "0"
+       hour: "2"
+       job: "/root/backup.sh"

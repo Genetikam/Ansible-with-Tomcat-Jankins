@@ -1,0 +1,25 @@
+all:
+   hosts:
+    web-server:
+     ansible-host: 10.69.0.82
+     ansible-user: root
+    app-server:
+     ansible-host: 10.69.0.79
+     ansible-user: root
+   children:
+    common:
+     hosts:
+      web-server:
+      app-server:
+    nginx:
+       hosts:
+          web-server
+    tomcat:
+       hosts:
+          app-server
+    backup:
+       hosts:
+          app-server
+    nginxb:
+       hosts:
+          web-server

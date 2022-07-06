@@ -1,0 +1,27 @@
+---
+- hosts: common
+  remote_user: root
+  roles:
+  - common
+
+- hosts: tomcat
+  remote_user: root
+  roles:
+  - tomcat
+  tags:
+  - 1
+
+- hosts: nginx
+  remote_user: root
+  roles:
+  - nginx
+
+- hosts: backup
+  remote_user: root
+  roles:
+  - backup
+
+- hosts: nginxb
+  remote_user: root
+  roles:
+  - nginxb

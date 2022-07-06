@@ -1,0 +1,30 @@
+---
+   - name: Install tomcat
+     yum: name=tomcat state=present
+
+   - name: Copy Jenkins.war
+     copy:
+       src: roles/tomcat/templates/jenkins.war
+       dest: /usr/share/tomcat/webapps/jenkins.war
+       owner: tomcat
+       group: tomcat
+       mode: 0770
+     notify: restart tomcat
+
+   - name: Copy tomcat.conf
+     copy:
+       src: roles/tomcat/templates/tomcat.conf
+       dest: /usr/share/tomcat/conf/tomcat.conf
+       owner: tomcat
+       group: tomcat
+       mode: 0770
+     notify: restart tomcat
+
+   - name: Create a symbolic link
+     ansible.builtin.file:
+       src: /usr/share/tomcat/webapps/jenkins
+       dest: /usr/share/tomcat/.jenkins
+       state: link
+
+   - name: Start Tomcat
+     service: name=tomcat state=started enabled=yes
